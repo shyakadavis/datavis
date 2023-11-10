@@ -11,15 +11,21 @@
 	let height = 400;
 
 	// set the margin for the SVG
+	// const margin: Margin = {
+	// 	top: 20,
+	// 	right: 40,
+	// 	bottom: 20,
+	// 	left: 0
+	// };
 	const margin: Margin = {
 		top: 20,
-		right: 40,
-		bottom: 20,
+		right: 100,
+		bottom: 60,
 		left: 0
 	};
 
 	// create a scale for the x axis
-	const x_scale = scaleLinear()
+	$: x_scale = scaleLinear()
 		.domain([0, 100]) // for this example, we know the domain of an exam score is 0-100
 		.range([0, width - margin.left - margin.right]);
 
@@ -39,8 +45,13 @@
 <h1 class="font-normal text-foreground text-sm text-center mb-4">
 	Students who studied longer scored higher on their final exams
 </h1>
-<section class="w-full bg-popover border rounded-md drop-shadow-sm grid place-items-center p-4">
-	<svg {width} {height}>
+
+<section bind:clientWidth={width} bind:clientHeight={height}>
+	<svg
+		{width}
+		{height}
+		class="bg-popover border rounded-md drop-shadow-sm grid place-items-center p-4"
+	>
 		<AxisX {height} {margin} {x_scale} />
 		<AxisY {margin} {max_hours} {width} {y_scale} />
 		<g class="circles" transform="translate({margin.left} {margin.top})">
@@ -56,3 +67,23 @@
 		</g>
 	</svg>
 </section>
+
+<!-- <section
+	class="w-full bg-popover border rounded-md drop-shadow-sm grid place-items-center p-4 my-4"
+>
+	<svg {width} {height}>
+		<AxisX {height} {margin} {x_scale} />
+		<AxisY {margin} {max_hours} {width} {y_scale} />
+		<g class="circles" transform="translate({margin.left} {margin.top})">
+			{#each students as student}
+				<circle
+					cx={x_scale(student.grade)}
+					cy={y_scale(student.hours)}
+					r="5"
+					fill="purple"
+					stroke="hsl(var(--foreground))"
+				/>
+			{/each}
+		</g>
+	</svg>
+</section> -->
