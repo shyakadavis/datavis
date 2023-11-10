@@ -3,7 +3,7 @@
 	import { ModeWatcher } from 'mode-watcher';
 </script>
 
-<main class="mx-auto max-w-7xl py-8">
+<main class="mx-auto max-w-7xl p-8">
 	<slot />
 </main>
 
