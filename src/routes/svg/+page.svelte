@@ -1,22 +1,17 @@
 <script lang="ts">
 	import { scaleLinear } from 'd3-scale';
-	import { max } from 'd3-array';
+	import { max, sort } from 'd3-array';
 	import { students } from '$lib/data/students';
 	import AxisX from './_components/axis-x.svelte';
 	import AxisY from './_components/axis-y.svelte';
-	import type { Margin } from '$lib/types';
+	import Tooltip from './_components/tooltip.svelte';
+	import type { Margin, StudentData } from '$lib/types';
 
 	// set the width and height of the SVG
 	let width = 400;
 	let height = 400;
 
 	// set the margin for the SVG
-	// const margin: Margin = {
-	// 	top: 20,
-	// 	right: 40,
-	// 	bottom: 20,
-	// 	left: 0
-	// };
 	const margin: Margin = {
 		top: 20,
 		right: 100,
@@ -40,50 +35,49 @@
 	const y_scale = scaleLinear()
 		.domain([0, max_hours])
 		.range([height - margin.top - margin.bottom, 0]);
+
+	let hovered_datum: StudentData | undefined = undefined;
 </script>
 
 <h1 class="font-normal text-foreground text-sm text-center mb-4">
 	Students who studied longer scored higher on their final exams
 </h1>
 
-<section bind:clientWidth={width} bind:clientHeight={height}>
+<section
+	bind:clientWidth={width}
+	on:mouseleave={() => (hovered_datum = undefined)}
+	aria-label={hovered_datum
+		? `Grade: ${hovered_datum.grade}, Hours: ${hovered_datum.hours}`
+		: undefined}
+	class="relative w-full"
+>
 	<svg
 		{width}
 		{height}
-		class="bg-popover border rounded-md drop-shadow-sm grid place-items-center p-4"
+		class="bg-popover border rounded-md drop-shadow-sm grid place-items-center p-4 w-full"
 	>
 		<AxisX {height} {margin} {x_scale} />
 		<AxisY {margin} {max_hours} {width} {y_scale} />
 		<g class="circles" transform="translate({margin.left} {margin.top})">
-			{#each students as student}
+			<!-- sorting here helps, for example, tabbing in order with the keyboard -->
+			{#each students.sort((a, b) => a.grade - b.grade) as student}
 				<circle
 					cx={x_scale(student.grade)}
 					cy={y_scale(student.hours)}
-					r="5"
-					fill="purple"
+					r={hovered_datum && hovered_datum === student ? '20' : '10'}
+					opacity={hovered_datum ? (hovered_datum === student ? '1' : '0.3') : '1'}
+					class="fill-cyan-500 transition-all ease-linear cursor-pointer focus:outline-none"
 					stroke="hsl(var(--foreground))"
+					on:mouseenter={() => (hovered_datum = student)}
+					on:focus={() => (hovered_datum = student)}
+					tabindex="0"
+					aria-label={`Grade: ${student.grade}, Hours: ${student.hours}`}
+					role="tab"
 				/>
 			{/each}
 		</g>
 	</svg>
+	{#if hovered_datum}
+		<Tooltip {hovered_datum} {width} {x_scale} {y_scale} />
+	{/if}
 </section>
-
-<!-- <section
-	class="w-full bg-popover border rounded-md drop-shadow-sm grid place-items-center p-4 my-4"
->
-	<svg {width} {height}>
-		<AxisX {height} {margin} {x_scale} />
-		<AxisY {margin} {max_hours} {width} {y_scale} />
-		<g class="circles" transform="translate({margin.left} {margin.top})">
-			{#each students as student}
-				<circle
-					cx={x_scale(student.grade)}
-					cy={y_scale(student.hours)}
-					r="5"
-					fill="purple"
-					stroke="hsl(var(--foreground))"
-				/>
-			{/each}
-		</g>
-	</svg>
-</section> -->

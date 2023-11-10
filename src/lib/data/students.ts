@@ -1,8 +1,4 @@
-type StudentData = {
-	name: string;
-	hours: number;
-	grade: number;
-};
+import type { StudentData } from '$lib/types';
 
 export const students: StudentData[] = [
 	{ name: 'Antonio', hours: 44, grade: 50 },
