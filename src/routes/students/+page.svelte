@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { scaleLinear } from 'd3-scale';
-	import { max, sort } from 'd3-array';
+	import { max } from 'd3-array';
 	import { students } from '$lib/data/students';
 	import AxisX from './_components/axis-x.svelte';
 	import AxisY from './_components/axis-y.svelte';
