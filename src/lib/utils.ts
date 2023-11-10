@@ -54,3 +54,12 @@ export const flyAndScale = (
 		easing: cubicOut
 	};
 };
+
+type TicksParams = {
+	interval: number;
+	array_length: number;
+};
+
+export function generate_ticks({ array_length, interval }: TicksParams) {
+	return Array.from({ length: array_length }, (_, i) => i * interval);
+}
