@@ -2,6 +2,7 @@ import { type ClassValue, clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 import { cubicOut } from 'svelte/easing';
 import type { TransitionConfig } from 'svelte/transition';
+import type { TicksParams } from './types';
 
 export function cn(...inputs: ClassValue[]) {
 	return twMerge(clsx(inputs));
@@ -53,11 +54,6 @@ export const flyAndScale = (
 		},
 		easing: cubicOut
 	};
-};
-
-type TicksParams = {
-	interval: number;
-	array_length: number;
 };
 
 export function generate_ticks({ array_length, interval }: TicksParams) {

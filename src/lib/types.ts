@@ -10,3 +10,8 @@ export type Margin = {
 	bottom: number;
 	left: number;
 };
+
+export type TicksParams = {
+	interval: number;
+	array_length: number;
+};

@@ -17,12 +17,12 @@ dependencies:
   d3-scale:
     specifier: ^4.0.2
     version: 4.0.2
+  lucide-svelte:
+    specifier: ^0.292.0
+    version: 0.292.0(svelte@4.2.3)
   mode-watcher:
     specifier: ^0.0.7
     version: 0.0.7(svelte@4.2.3)
-  radix-icons-svelte:
-    specifier: ^1.2.1
-    version: 1.2.1
   tailwind-merge:
     specifier: ^2.0.0
     version: 2.0.0
@@ -79,6 +79,9 @@ devDependencies:
   svelte-check:
     specifier: ^3.4.3
     version: 3.5.2(postcss-load-config@4.0.1)(postcss@8.4.31)(svelte@4.2.3)
+  svelte-seo:
+    specifier: ^1.5.4
+    version: 1.5.4(typescript@5.2.2)
   tailwindcss:
     specifier: ^3.3.2
     version: 3.3.5
@@ -1633,6 +1636,14 @@ packages:
       yallist: 4.0.0
     dev: true
 
+  /lucide-svelte@0.292.0(svelte@4.2.3):
+    resolution: {integrity: sha512-bnTpg9pbm6pQDc+YiLK2yxtRFk2Cc+hbzwjAPaV85k56x10CJ9LsXjon6wRrlNTSdxJR7GOsRjz0A5ZNu3Z7dg==}
+    peerDependencies:
+      svelte: '>=3 <5'
+    dependencies:
+      svelte: 4.2.3
+    dev: false
+
   /magic-string@0.27.0:
     resolution: {integrity: sha512-8UnnX2PeRAPZuN12svgR9j7M1uWMovg/CEnIwIG0LFkXSJJe4PdfUGiTGl8V9bsBHFUtfVINcSyYxd7q+kx9fA==}
     engines: {node: '>=12'}
@@ -2007,10 +2018,6 @@ packages:
   /queue-microtask@1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
 
-  /radix-icons-svelte@1.2.1:
-    resolution: {integrity: sha512-svmiMd0ocpdTm9cvAz0klcZpnh639lVctj6psQiawd4pYalVzOG4cX+JizAgRckyTAsRVdzObP7D2EBrSfdghA==}
-    dev: false
-
   /react-is@18.2.0:
     resolution: {integrity: sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==}
     dev: true
@@ -2088,6 +2095,14 @@ packages:
       graceful-fs: 4.2.11
       mkdirp: 0.5.6
       rimraf: 2.7.1
+    dev: true
+
+  /schema-dts@1.1.2(typescript@5.2.2):
+    resolution: {integrity: sha512-MpNwH0dZJHinVxk9bT8XUdjKTxMYrA5bLtrrGmFA6PTLwlOKnhi67XoRd6/ty+Djt6ZC0slR57qFhZDNMI6DhQ==}
+    peerDependencies:
+      typescript: '>=4.1.0'
+    dependencies:
+      typescript: 5.2.2
     dev: true
 
   /semver@7.5.4:
@@ -2312,6 +2327,14 @@ packages:
       strip-indent: 3.0.0
       svelte: 4.2.3
       typescript: 5.2.2
+    dev: true
+
+  /svelte-seo@1.5.4(typescript@5.2.2):
+    resolution: {integrity: sha512-pevGUiWkqLrSWXVkxE0SbkBLNsz2dVaiK8/kBq2eUHYdyzuPEZGbqtUARyJZHouv28xre7IU9t0VnoYt8d4kzA==}
+    dependencies:
+      schema-dts: 1.1.2(typescript@5.2.2)
+    transitivePeerDependencies:
+      - typescript
     dev: true
 
   /svelte@4.2.3:

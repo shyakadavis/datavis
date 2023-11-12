@@ -1,4 +1,5 @@
 <script lang="ts">
+	import SvelteSeo from 'svelte-seo';
 	import { scaleLinear } from 'd3-scale';
 	import { max } from 'd3-array';
 	import { students } from '$lib/data/students';
@@ -38,6 +39,8 @@
 
 	let hovered_datum: StudentData | undefined = undefined;
 </script>
+
+<SvelteSeo title="Students | Scatter Plot" />
 
 <h1 class="font-normal text-foreground text-sm text-center mb-4">
 	Students who studied longer scored higher on their final exams
