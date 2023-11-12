@@ -75,12 +75,12 @@
 		@apply border-border;
 	}
 	body {
-		@apply bg-background text-foreground font-inter;
+		@apply bg-background text-foreground font-inter min-h-[100dvh] flex flex-col;
 	}
 }
 
 @layer utilities {
 	.link {
-		@apply relative after:absolute after:bg-foreground after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-left after:scale-x-100 hover:after:origin-bottom-right hover:after:scale-x-0 after:transition-transform after:ease-in-out after:duration-300;
+		@apply relative after:absolute after:bg-foreground after:bottom-0 after:left-0 after:h-[1px] after:w-full after:origin-bottom-left after:scale-x-100 hover:after:origin-bottom-right hover:after:scale-x-0 after:transition-transform after:ease-in-out after:duration-300;
 	}
 }

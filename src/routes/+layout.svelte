@@ -1,10 +1,17 @@
-<script>
+<script lang="ts">
 	import '../app.postcss';
 	import { ModeWatcher } from 'mode-watcher';
+	import Metadata from '$lib/components/misc/metadata.svelte';
+	import Footer from '$lib/components/shared/footer.svelte';
+	import MainLayout from '$lib/components/layouts/main-layout.svelte';
 </script>
 
-<main class="mx-auto max-w-7xl p-8">
+<Metadata />
+
+<MainLayout>
 	<slot />
-</main>
+</MainLayout>
+
+<Footer />
 
 <ModeWatcher />
