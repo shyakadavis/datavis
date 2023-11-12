@@ -42,7 +42,7 @@
 
 <SvelteSeo title="Students | Scatter Plot" />
 
-<h1 class="font-normal text-foreground text-sm text-center mb-4">
+<h1 class="scroll-m-20 text-xl font-extrabold tracking-tight lg:text-2xl text-center my-2">
 	Students who studied longer scored higher on their final exams
 </h1>
 
@@ -57,7 +57,7 @@
 	<svg
 		{width}
 		{height}
-		class="bg-popover border rounded-md drop-shadow-sm grid place-items-center p-4 w-full"
+		class="bg-popover border rounded-xl drop-shadow grid place-items-center p-4 w-full"
 	>
 		<AxisX {height} {margin} {x_scale} />
 		<AxisY {margin} {max_hours} {width} {y_scale} />
@@ -67,9 +67,9 @@
 				<circle
 					cx={x_scale(student.grade)}
 					cy={y_scale(student.hours)}
-					r={hovered_datum && hovered_datum === student ? '20' : '10'}
+					r={hovered_datum && hovered_datum === student ? '14' : '7'}
 					opacity={hovered_datum ? (hovered_datum === student ? '1' : '0.3') : '1'}
-					class="fill-cyan-500 transition-all ease-linear cursor-pointer focus:outline-none"
+					class="fill-muted-foreground transition-all ease-linear cursor-pointer focus:outline-none"
 					stroke="hsl(var(--foreground))"
 					on:mouseenter={() => (hovered_datum = student)}
 					on:focus={() => (hovered_datum = student)}
@@ -84,3 +84,4 @@
 		<Tooltip {hovered_datum} {width} {x_scale} {y_scale} />
 	{/if}
 </section>
+<p class="text-center font-light text-xs my-2">press "tab" to navigate the chart</p>
