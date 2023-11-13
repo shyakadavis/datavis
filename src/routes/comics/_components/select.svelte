@@ -10,7 +10,9 @@
 
 	export let placeholder: string;
 	export let options: string[];
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	export let on_selected_change: OnChangeFn<SelectOption<any> | undefined> | undefined;
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	export let selected: SelectOption<any>;
 </script>
 

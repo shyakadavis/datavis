@@ -1,9 +1,7 @@
 <script lang="ts">
-	import { uniq } from 'lodash';
 	import all_characters from '$lib/data/comics.json';
 	import { Chart, Select } from '.';
 
-	// this list is wrong
 	const universes = [
 		'Avengers',
 		'Hulk',
@@ -75,4 +73,4 @@
 	/>
 </section>
 
-<Chart {all_characters} {metric_x} {metric_y} {universe_characters} />
+<Chart {metric_x} {metric_y} {universe_characters} />

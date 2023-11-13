@@ -15,20 +15,18 @@
 	alt={character.name}
 	height={radius * 2}
 	width={radius * 2}
-	style="
-            transform: translate({x_scale(x_accessor(character))}px, {y_scale(
+	style="transform: translate({x_scale(x_accessor(character))}px, {y_scale(
 		y_accessor(character)
 	)}px) translate(-50%, -50%);
             height: {radius * 2}px;
             width: {radius * 2}px;
             "
 	class={cn(
-		'absolute object-cover rounded-full drop-shadow border-2 overflow-hidden transition-transform ease-linear duration-300',
+		'absolute object-cover rounded-full drop-shadow border-2 overflow-hidden transition-all ease-linear duration-300',
 		{
 			'border-emerald-500': character.biography.alignment === 'good',
 			'border-pink-500': character.biography.alignment === 'bad',
 			'border-amber-500': character.biography.alignment === 'neutral'
 		}
 	)}
-	on:mouseenter
 />
