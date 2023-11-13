@@ -1,5 +1,17 @@
 <script lang="ts">
 	import SvelteSeo from 'svelte-seo';
+	const examples = [
+		{
+			name: 'Students',
+			path: '/students',
+			description: 'Student hours/marks scatter plot'
+		},
+		{
+			name: 'Comics',
+			path: '/comics',
+			description: 'Comics grid chart'
+		}
+	];
 </script>
 
 <SvelteSeo title="Datavis | SHYAKA Davis" />
@@ -18,9 +30,12 @@
 </header>
 
 <main class="my-4">
-	<ul class="list-disc pl-10">
-		<li>
-			<a href="/students" class="link">Student hours/marks scatter plot</a>
-		</li>
+	<ul class="font-light grid grid-cols-1 sm:grid-cols-2 gap-4">
+		{#each examples as { name, path, description }}
+			<li class="border-b p-4">
+				<a href={path} class="link">{name}</a>
+				<p class="text-sm text-muted-foreground mt-2">{description}</p>
+			</li>
+		{/each}
 	</ul>
 </main>

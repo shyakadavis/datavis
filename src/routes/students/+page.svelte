@@ -42,7 +42,7 @@
 
 <SvelteSeo title="Students | Scatter Plot" />
 
-<h1 class="scroll-m-20 text-xl font-extrabold tracking-tight lg:text-2xl text-center my-2">
+<h1 class="scroll-m-20 text-xl font-extrabold tracking-tight lg:text-2xl text-center my-4">
 	Students who studied longer scored higher on their final exams
 </h1>
 
