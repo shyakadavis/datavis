@@ -50,7 +50,7 @@
 
 <section
 	id="grid_chart"
-	class="wrapper relative flex flex-col h-[80dvh] w-full mx-auto bg-popover border drop-shadow rounded-xl"
+	class="wrapper relative flex flex-col h-[80dvh] mx-auto bg-popover border drop-shadow rounded-xl"
 	bind:clientHeight={height}
 	bind:clientWidth={width}
 	on:mouseleave={() => (hovered_character = undefined)}

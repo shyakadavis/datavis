@@ -22,7 +22,7 @@
             width: {radius * 2}px;
             "
 	class={cn(
-		'absolute object-cover rounded-full drop-shadow border-2 overflow-hidden transition-all ease-linear duration-300',
+		'absolute object-cover z-10 rounded-full drop-shadow border-2 overflow-hidden transition-all ease-linear duration-300',
 		{
 			'border-emerald-500': character.biography.alignment === 'good',
 			'border-pink-500': character.biography.alignment === 'bad',
