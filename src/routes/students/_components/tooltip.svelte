@@ -21,7 +21,7 @@
 </script>
 
 <div
-	class="absolute bg-popover p-2 shadow-md rounded-md border pointer-events-none transition-all ease-linear flex flex-wrap gap-2 items-center text-sm"
+	class="absolute bg-popover p-2 shadow-md rounded-md border pointer-events-none transition-all ease-linear flex flex-wrap gap-2 items-center justify-center text-sm"
 	style="top: {y_position}px; left: {x_position}px;"
 	bind:clientWidth={tooltip_width}
 >
