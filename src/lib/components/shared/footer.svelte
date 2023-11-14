@@ -6,6 +6,6 @@
 		rel=" noopener noreferrer"
 		class="link cursor-alias"
 	>
-		SHYAKA Davis
+		SHYAKA
 	</a>
 </footer>
